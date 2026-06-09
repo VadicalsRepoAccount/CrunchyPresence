@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CrunchyPresence</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <span class="logo-icon"></span>
+      <span class="logo-text">CrunchyPresence</span>
+    </div>
+    <div class="badge" id="status-badge">—</div>
+  </header>
+
+  <main>
+    <section class="now-watching" id="now-watching" hidden>
+      <div class="thumbnail-wrap">
+        <img id="thumb" src="" alt="Thumbnail" />
+      </div>
+      <div class="meta">
+        <p class="series"  id="series-title">—</p>
+        <p class="episode" id="episode-title">—</p>
+        <p class="episode-meta" id="episode-meta"></p>
+        <div class="progress-wrap">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <div class="time-labels">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idle-state" id="idle-state">
+      <p>Open a Crunchyroll episode to start sharing your presence.</p>
+    </section>
+
+    <div class="bridge-status" id="bridge-info">
+      <span class="dot" id="bridge-dot"></span>
+      <span id="bridge-label">Connecting to bridge…</span>
+    </div>
+  </main>
+
+  <footer>
+    <button id="btn-clear" title="Clear Discord presence">Clear presence</button>
+    <a id="btn-docs" href="https://github.com/you/CrunchyPresence" target="_blank">Docs</a>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* ─── CrunchyPresence · popup.css ───────────────────────────────────────────── */
+
+:root {
+  --bg:        #0d0d0f;
+  --surface:   #18181c;
+  --surface2:  #232328;
+  --orange:    #f47521;
+  --orange-dim:#7a3c10;
+  --text:      #e8e8e8;
+  --muted:     #7a7a85;
+  --green:     #3ecf75;
+  --red:       #e05252;
+  --radius:    10px;
+  --font:      "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  width: 320px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* ── Header ── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 10px;
+  border-bottom: 1px solid var(--surface2);
+}
+
+.logo { display: flex; align-items: center; gap: 7px; }
+.logo-icon { font-size: 18px; }
+.logo-text { font-weight: 700; font-size: 14px; letter-spacing: .01em; }
+
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--surface2);
+  color: var(--muted);
+}
+.badge.playing  { background: #1a2f1e; color: var(--green); }
+.badge.paused   { background: #2b1f0e; color: var(--orange); }
+
+/* ── Main ── */
+main { padding: 12px 14px; display: flex; flex-direction: column; gap: 12px; }
+
+/* Now watching card */
+.now-watching {
+  display: flex;
+  gap: 11px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 10px;
+  border: 1px solid var(--surface2);
+}
+
+.thumbnail-wrap {
+  flex-shrink: 0;
+  width: 76px;
+  height: 44px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--surface2);
+}
+.thumbnail-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.meta { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.series  { font-weight: 700; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.episode { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.episode-meta { font-size: 10px; color: var(--orange); font-weight: 600; }
+
+.progress-wrap { margin-top: 6px; }
+.progress-bar  {
+  height: 3px;
+  background: var(--surface2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--orange);
+  border-radius: 2px;
+  width: 0%;
+  transition: width .5s ease;
+}
+.time-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--muted);
+}
+
+/* Idle state */
+.idle-state {
+  padding: 18px 0 6px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Bridge status */
+.bridge-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+.dot.ok    { background: var(--green); }
+.dot.error { background: var(--red); }
+
+/* ── Footer ── */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px 12px;
+  border-top: 1px solid var(--surface2);
+}
+
+button, footer a {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: color .15s, background .15s;
+}
+button:hover, footer a:hover {
+  background: var(--surface2);
+  color: var(--text);
+}

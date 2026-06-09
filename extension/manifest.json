@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "name": "CrunchyPresence",
+  "version": "1.0.0",
+  "description": "Discord Rich Presence for Crunchyroll — works on any sub-profile.",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "crunchypresence"
+    }
+  },
+
+  "permissions": [
+    "tabs",
+    "storage",
+    "https://www.crunchyroll.com/*"
+  ],
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["https://www.crunchyroll.com/watch/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
